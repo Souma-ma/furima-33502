@@ -16,8 +16,7 @@
 ### Association
 
 - has_many :items
-- has_many :comments
-- has_one  :purchase
+- has_many :purchases
 
 ## itemsテーブル
 
@@ -29,28 +28,13 @@
 | state_id      | integer        | null: false                    | 
 | postage_id    | integer        | null: false                    |
 | region_id     | integer        | null: false                    |
-| shipping_date | integer        | null: false                    |
+| shipping_date_id | integer        | null: false                    |
 | price         | integer        | null: false                    |
 | user          | references     | null: false, foreign_key: true |
 ### Association
 
 - belongs_to :user
-- has_many :comments
 - has_one :purchase
-
-
-## commentsテーブル
-
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| text     | text       | null: false                    |
-| user     | references | null: false, foreign_key: true |
-| item     | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :item
 
 ## purchasesテーブル
 
