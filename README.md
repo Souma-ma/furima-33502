@@ -5,15 +5,14 @@
 | Column          | Type     | Options     |
 | --------------- | -------  | ----------- |
 | nickname        | string   | null: false |
-| email           | string   | null: false |
+| email           | string   | null: false, unique: true |
 | password        | string   | null: false |
-| last_name       | string   |  null: false|
+| encrypted_password | string   | null: false |
+| last_name       | string   | null: false |
 | first_name      | string   | null: false |
 | last_name_kana  | string   | null: false |
 | first_name_kana | string   | null: false |
-| year            | integer  | null: false |
-| month           | integer  | null: false |
-| day             | integer  | null: false |
+| birth_day       | date     | null: false |
 
 ### Association
 
@@ -24,7 +23,6 @@
 
 | Column        | Type           | Options                        |
 | ------------- | ----------     | ------------------------------ |
-| image         | Active Storageで実装                             |
 | name          | string         | null: false                    |
 | contents      | text           | null: false                    |
 | category_id   | integer        | null: false                    |
@@ -33,9 +31,7 @@
 | region_id     | integer        | null: false                    |
 | shipping_date | integer        | null: false                    |
 | price         | integer        | null: false                    |
-| saler_id      | references     | null: false, foreign_key: true |
-| buyer_id      | references     | null: false, foreign_key: true |
-
+| user          | references     | null: false, foreign_key: true |
 ### Association
 
 - belongs_to :user
@@ -61,27 +57,25 @@
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
 | item        | references | null: false, foreign_key: true |
-| information | references | null: false, foreign_key: true |
+| user        | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :item
-- has_one :information
+- belongs_to :user
 
 ## informationsテーブル
 
 | Column        | Type    | Options     |
 | ------------- | ------- | ----------- |
-| card_number   | integer | null: false |
-| limit_month   | integer | null: false |
-| limit_year    | integer | null: false |
-| card_code     | integer | null: false | 
-| postcode      | integer | null: false |
+| postcode      | string  | null: false |
 | prefecture_id | integer | null: false |
 | city          | string  | null: false |
 | block         | string  | null: false |
 | building      | string  |             |
-| phone_number  | integer | null: false |
+| phone_number  | string | null: false |
+| purchase      | references | foreign_key: true |
+
 
 ### Association
 
