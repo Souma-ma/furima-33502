@@ -3,6 +3,18 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe "ユーザー新規登録" do
     context '新規登録できるとき' do
+      it "nicknameとemailとpasswordとpassword_confirmationとlast_nameとfirst_nameとlast_name_kanaとfirst_name_kanaとbirth_dayが存在すれば登録できる" do
+        
+      end
+      it "passwordとpassword_confirmationが6文字以上であれば登録できる" do
+      
+      end
+      it "last_nameとfirst_nameが全角であれば登録できる" do
+        
+      end
+      it "last_name_kanaとfirst_name_kanaがカタカナであれば登録できる" do
+        
+      end
     end
     context '新規登録できないとき' do
       it "nicknameが空では登録できない" do
@@ -12,9 +24,6 @@ RSpec.describe User, type: :model do
 
       end
       it "重複したemailが存在する場合登録できない" do
-
-      end
-      it "emailに@がなければ登録できない" do
 
       end
       it "passwordが空では登録できない" do
@@ -57,7 +66,7 @@ RSpec.describe User, type: :model do
 
       end
       it "生年月日が空だと登録できない" do
-        
+
       end
     end
   end
