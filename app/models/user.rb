@@ -20,5 +20,7 @@ class User < ApplicationRecord
     validates :first_name_kana
   end
   validates :email, uniqueness: true
-  validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i} #半角英数混合  validates :last_name_kana, format: {with: /\A[ァ-ヶー－]+\z/} #全角カナ入力必須
+  validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i} #半角英数混合 
+
+  has_many :items
 end

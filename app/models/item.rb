@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   belongs_to :postage
   belongs_to :region
   belongs_to :shipping_date
+  belongs_to :user
 
   with_options presence: true do
     validates :name
