@@ -19,4 +19,6 @@ class Item < ApplicationRecord
     validates :region_id
     validates :shipping_date_id
   end
+
+  has_one_attached :image
 end
