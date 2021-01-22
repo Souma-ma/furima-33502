@@ -1,2 +1,3 @@
-class State < ApplicationRecord
+class State < ActiveHash::Base
+
 end
