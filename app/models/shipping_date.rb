@@ -1,2 +1,3 @@
-class ShippingDate < ApplicationRecord
+class ShippingDate < ActiveHash::Base
+
 end
