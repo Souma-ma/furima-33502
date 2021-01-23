@@ -5,25 +5,10 @@ RSpec.describe Item, type: :model do
     @item = FactoryBot.build(:item)
   end
 
-  descrive "商品出品機能" do
+  describe "商品出品機能" do
     context '商品出品できるとき' do
       it "imageとnameとcontentsとcategory_idとstate_idとpostage_idとregion_idとshipping_idとpriceがあれば出品できる" do
-        
-      end
-      it "category_idが1以外なら出品できる" do
-        
-      end
-      it "state_idが1以外なら出品できる" do
-        
-      end
-      it "postage_idが1以外なら出品できる" do
-        
-      end
-      it "region_idが1以外なら出品できる" do
-        
-      end
-      it "shipping_date_idが1以外なら出品できる" do
-        
+        expect(@item).to be_valid
       end
       it "priceが300円以上なら出品できる" do
         
