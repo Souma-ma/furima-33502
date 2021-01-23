@@ -11,10 +11,12 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
       it "priceが300円以上なら出品できる" do
-        
+        @item.price = 300
+        expect(@item).to be_valid
       end
       it "priceが9999999円以下なら出品できる" do
-        
+        @item.price = 9999999
+        expect(@item).to be_valid
       end
     end
     context '商品出品できないとき' do
