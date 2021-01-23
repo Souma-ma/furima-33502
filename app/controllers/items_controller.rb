@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   def index
-
   end
 
   def new
@@ -13,12 +12,13 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render :new
-    end 
+    end
   end
 
-
   private
+
   def item_params
-    params.require(:item).permit(:image,:name,:contents,:category_id,:state_id,:postage_id,:region_id,:shipping_date_id,:price).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :name, :contents, :category_id, :state_id, :postage_id, :region_id, :shipping_date_id,
+                                 :price).merge(user_id: current_user.id)
   end
 end
