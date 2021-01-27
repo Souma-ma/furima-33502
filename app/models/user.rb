@@ -23,4 +23,5 @@ class User < ApplicationRecord
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i } # 半角英数混合
 
   has_many :items
+  has_many :purchases
 end
