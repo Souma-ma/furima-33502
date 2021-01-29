@@ -5,6 +5,6 @@ FactoryBot.define do
     city {"札幌市"}
     block {"1-1"}
     building {"札幌ハイツ"}
-    phon_number {"09012345678"}
+    phone_number {"09012345678"}
   end
 end
