@@ -1,5 +1,5 @@
 class PurchasesController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!
   before_action :move_to_root
   before_action :direct_top
 
@@ -40,7 +40,9 @@ class PurchasesController < ApplicationController
 
   def move_to_root
     @item = Item.find(params[:item_id])
-    redirect_to root_path if @item.user_id == current_user.id
+    if @item.user_id == current_user.id
+      redirect_to root_path 
+    end
   end
 
   def direct_top
