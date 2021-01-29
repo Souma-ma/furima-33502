@@ -1,8 +1,9 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!
+  before_action :item_set
   before_action :move_to_root
   before_action :direct_top
-  before_action :item_set
+  
 
   def index
     @purchase_item = PurchaseItem.new
