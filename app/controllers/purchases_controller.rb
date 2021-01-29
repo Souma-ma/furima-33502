@@ -5,6 +5,7 @@ class PurchasesController < ApplicationController
   end
 
   def create
+    binding.pry
     @purchase_item = PurchaseItem.new(purchase_item_params)
     if @purchase_item.valid?
        @purchase_item.save
@@ -17,6 +18,6 @@ class PurchasesController < ApplicationController
 
   private
   def purchase_item_params
-    params.require(:purchase_item).permit(:postcode, :prefecture_id, :city, :block, :building, :phone_number).merge(user_id: current_user.id,item_id: params[:item_id])
+    params.require(:purchase_item).permit(:postcode, :prefecture_id, :city, :block, :building, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 end
