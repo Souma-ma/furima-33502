@@ -2,14 +2,13 @@ class PurchasesController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_root
   before_action :direct_top
+  before_action :item_set
 
   def index
-    @item = Item.find(params[:item_id])
     @purchase_item = PurchaseItem.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @purchase_item = PurchaseItem.new(purchase_item_params)
     if @purchase_item.valid?
       pay_item
@@ -48,5 +47,9 @@ class PurchasesController < ApplicationController
   def direct_top
     @item = Item.find(params[:item_id])
     redirect_to root_path if @item.purchase.present?
+  end
+
+  def item_set
+    @item = Item.find(params[:item_id])
   end
 end
